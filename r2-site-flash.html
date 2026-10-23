@@ -1278,7 +1278,7 @@
 
     try {
       // 1) Descobre o site pelo slug
-      const siteRows = await supabaseSelect('sites', `slug=eq.${encodeURIComponent(SITE_SLUG)}&select=*`);
+      const siteRows = await supabaseSelect('sites', `slug=eq.${encodeURIComponent(SITE_SLUG)}&select=id,name,slug,status,domain,whatsapp_number,whatsapp_message,price_amount,price_installments,price_note,hero_headline,hero_subheadline,final_cta_headline`);
       const site = siteRows && siteRows[0];
       if(!site) {
         console.warn(`Nenhum site cadastrado no painel com o slug "${SITE_SLUG}".`);
